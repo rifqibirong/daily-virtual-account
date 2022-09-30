@@ -1,0 +1,25 @@
+.wrapper-login {
+    background-color: #EFEEEE;
+    height: 91vh;
+    display: flex;
+    align-items: center;
+    padding: 0 13%;
+    justify-content: space-between;
+}
+
+.logo-login {
+    border-radius: 50%;
+    width: 30%;
+}
+
+.form-login {
+    padding: 25px 10px;
+    background-color: #fff;
+    width: 30%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
+}

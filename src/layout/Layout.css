@@ -1,0 +1,26 @@
+.navbar {
+    padding: 0 13%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    backdrop-filter: blur(8px);
+    background-color: rgb(30 41 59);
+    /* width: 100%; */
+}
+
+.navbar .logo {
+    width: 8rem;
+    display: block;
+    margin: auto 0;
+}
+
+.link-logout {
+    color: #fff;
+    text-decoration: none;
+    font-weight:600;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
