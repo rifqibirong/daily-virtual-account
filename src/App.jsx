@@ -15,59 +15,6 @@ const App = () => {
   //   }
   // }, []);
 
-  //   return (
-  //     <BrowserRouter>
-  //       <Layout />
-  //       <Routes>
-  //         <Route path="/" element={<Login />} />
-  //         <Route
-  //           path="/home"
-  //           element={
-  //             <ProtectRoute>
-  //               {" "}
-  //               <Home />
-  //             </ProtectRoute>
-  //           }
-  //         />
-  //         <Route
-  //           path="/form"
-  //           element={
-  //             <ProtectRoute>
-  //               {""}
-  //               <Form />
-  //             </ProtectRoute>
-  //           }
-  //         />
-  //         <Route
-  //           path="/detail"
-  //           element={
-  //             <ProtectRoute>
-  //               {""}
-  //               <Detail />
-  //             </ProtectRoute>
-  //           }
-  //         />
-  //       </Routes>
-  //     </BrowserRouter>
-  //   );
-  // };
-
-  // const ProtectRoute = (props) => {
-  //   const isLogin = localStorage.getItem("login");
-  //   if (isLogin === "false") return <Navigate to={"/"} />;
-  //   return props.children;
-  // };
-
-  // batas //
-
-  const ProtectRoute = () => {
-    const isLogin = localStorage.getItem("login");
-
-    if (isLogin === "false") {
-      return <Navigate to={"/"} />;
-    }
-  };
-
   return (
     <BrowserRouter>
       <Layout />
@@ -77,6 +24,7 @@ const App = () => {
           path="/home"
           element={
             <ProtectRoute>
+              {" "}
               <Home />
             </ProtectRoute>
           }
@@ -85,6 +33,7 @@ const App = () => {
           path="/form"
           element={
             <ProtectRoute>
+              {""}
               <Form />
             </ProtectRoute>
           }
@@ -93,6 +42,7 @@ const App = () => {
           path="/detail"
           element={
             <ProtectRoute>
+              {""}
               <Detail />
             </ProtectRoute>
           }
@@ -101,4 +51,54 @@ const App = () => {
     </BrowserRouter>
   );
 };
+
+const ProtectRoute = (props) => {
+  const isLogin = localStorage.getItem("login");
+  if (isLogin === "false") return <Navigate to={"/"} />;
+  return props.children;
+};
+
+// batas //
+
+//   const ProtectRoute = () => {
+//     const isLogin = localStorage.getItem("login");
+
+//     if (isLogin === "false") {
+//       return <Navigate to={"/"} />;
+//     }
+//   };
+
+//   return (
+//     <BrowserRouter>
+//       <Layout />
+//       <Routes>
+//         <Route path="/" element={<Login />} />
+//         <Route
+//           path="/home"
+//           element={
+//             <ProtectRoute>
+//               <Home />
+//             </ProtectRoute>
+//           }
+//         />
+//         <Route
+//           path="/form"
+//           element={
+//             <ProtectRoute>
+//               <Form />
+//             </ProtectRoute>
+//           }
+//         />
+//         <Route
+//           path="/detail"
+//           element={
+//             <ProtectRoute>
+//               <Detail />
+//             </ProtectRoute>
+//           }
+//         />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// };
 export default App;

@@ -7,14 +7,17 @@ import Button from "@mui/material/Button";
 const Login = () => {
   const [Username, setUsername] = useState();
   const [Password, setPassword] = useState();
+  const [Error, setError] = useState(false);
 
   const handleLogin = (event) => {
     event.preventDefault();
     if (Username === "db" && Password === "123") {
       localStorage.setItem("login", "true");
       window.location.href = "/home";
+      setError(false);
     } else {
       alert("wrong username or password");
+      setError(true);
     }
     console.log("username", "password");
   };

@@ -3,7 +3,6 @@ import { Box, Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { BsPlusLg } from "react-icons/bs";
 import "./Home.css";
-import { render } from "react-dom";
 import { Link, useNavigate } from "react-router-dom";
 
 const columns = [
