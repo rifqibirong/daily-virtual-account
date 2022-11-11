@@ -4,10 +4,11 @@ import { DataGrid } from "@mui/x-data-grid";
 import { BsPlusLg } from "react-icons/bs";
 import "./Home.css";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const columns = [
   {
-    field: "id",
+    field: "",
     headerName: "ID",
     headerAlign: "center",
     renderCell: (params) => {
@@ -16,21 +17,21 @@ const columns = [
     width: 90,
   },
   {
-    field: "firstName",
+    field: "name",
     headerName: "BCA VA Number",
     headerAlign: "center",
     width: 250,
     editable: true,
   },
   {
-    field: "lastName",
+    field: "phone",
     headerName: "Outlet Name",
     headerAlign: "center",
     width: 250,
     editable: true,
   },
   {
-    field: "age",
+    field: "username",
     headerName: "Brand",
     headerAlign: "center",
     type: "number",
@@ -41,7 +42,7 @@ const columns = [
     editable: true,
   },
   {
-    field: "fullName",
+    field: "email",
     headerName: "Bank Code",
     headerAlign: "center",
     sortable: true,
@@ -50,12 +51,12 @@ const columns = [
     //   `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
   {
-    field: "",
+    field: "id",
     headerName: "Action",
     headerAlign: "center",
     renderCell: (params) => {
       return (
-        <Link to={"/detail"} className="link-detail">
+        <Link to={"/detail/" + params.value} className="link-detail">
           Detail
         </Link>
       );
@@ -86,6 +87,7 @@ const rows = [
 
 const Home = () => {
   const navigate = useNavigate();
+  const [data, setData] = useState({});
 
   useEffect(() => {
     const status = localStorage.getItem("login");
@@ -97,9 +99,17 @@ const Home = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const BASE_URL = "https://jsonplaceholder.typicode.com/users";
+    axios.get(BASE_URL).then((res) => {
+      console.log(res);
+      setData(res.data);
+    });
+  }, []);
+
   return (
     <>
-      <Box sx={{ padding: "3% 13%", height: 500 }}>
+      <Box sx={{ padding: "3% 13%" }} className="wrapper-home">
         <Button
           onClick={() => navigate("/form")}
           style={{ marginBottom: 15, display: "flex", gap: 5 }}
@@ -108,7 +118,7 @@ const Home = () => {
           <BsPlusLg size={15} /> Add Virtual Account
         </Button>
         <DataGrid
-          rows={rows}
+          rows={data}
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[5]}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logo from "assets/logo_dailybox.jpeg";
+import Logo from "assets/singapore-db white.jpg";
 import "./Login.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -14,9 +14,10 @@ const Login = () => {
     if (Username === "db" && Password === "123") {
       localStorage.setItem("login", "true");
       window.location.href = "/home";
-      setError(false);
+      if (Error === true) {
+        setError(false);
+      }
     } else {
-      alert("wrong username or password");
       setError(true);
     }
     console.log("username", "password");
@@ -55,7 +56,7 @@ const Login = () => {
           value={Username}
           onChange={handleUsername}
           error={Error}
-          style={{ width: 300, backgroundColor: "#e6f2ff" }}
+          style={{ width: "100%", backgroundColor: "#e6f2ff" }}
         />
         <TextField
           label="Password"
@@ -67,11 +68,11 @@ const Login = () => {
           size="small"
           onChange={handlePassword}
           error={Error}
-          style={{ width: 300, backgroundColor: "#e6f2ff" }}
+          style={{ width: "100%", backgroundColor: "#e6f2ff" }}
         />
         <Button
           onClick={handleLogin}
-          style={{ width: 300 }}
+          style={{ width: "100%" }}
           variant="contained"
         >
           Login

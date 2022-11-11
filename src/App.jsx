@@ -7,14 +7,6 @@ import Form from "pages/Form";
 import Detail from "pages/Detail";
 
 const App = () => {
-  // useEffect(() => {
-  //   const isLogin = localStorage.getItem("login");
-
-  //   if (isLogin === false) {
-  //     window.location.href = "/";
-  //   }
-  // }, []);
-
   return (
     <BrowserRouter>
       <Layout />
@@ -24,7 +16,6 @@ const App = () => {
           path="/home"
           element={
             <ProtectRoute>
-              {" "}
               <Home />
             </ProtectRoute>
           }
@@ -33,16 +24,14 @@ const App = () => {
           path="/form"
           element={
             <ProtectRoute>
-              {""}
               <Form />
             </ProtectRoute>
           }
         />
         <Route
-          path="/detail"
+          path="/detail/:id"
           element={
             <ProtectRoute>
-              {""}
               <Detail />
             </ProtectRoute>
           }

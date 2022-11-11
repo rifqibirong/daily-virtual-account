@@ -14,3 +14,13 @@
     text-align: center;
     width: 100%;
 }
+
+.wrapper-home {
+   height: 500px; 
+}
+
+@media (max-width:801px) {
+    .wrapper-home {
+        height: 550px;
+    }
+}
